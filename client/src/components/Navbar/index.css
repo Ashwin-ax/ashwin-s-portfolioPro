@@ -1,0 +1,134 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(8, 11, 17, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  gap: 1.25rem;
+}
+
+/* Minimalist Futuristic "Ashwin" Wordmark */
+.brand-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding-block: 0.25rem;
+}
+
+.brand-logo__text {
+  font-family: var(--font-sans);
+  font-size: 1.38rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--ink-primary);
+  transition: color 0.2s ease;
+}
+
+.brand-logo__accent {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover .brand-logo__text {
+  color: #ffffff;
+}
+
+.brand-logo:hover .brand-logo__accent {
+  transform: translateY(-1px) scale(1.25);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.65rem;
+}
+
+.navbar__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink-secondary);
+  transition: color 0.18s ease;
+}
+
+.navbar__link:hover {
+  color: var(--accent-primary);
+}
+
+.navbar__cta {
+  padding: 0.48rem 0.95rem;
+  font-size: var(--text-xs);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0 9px;
+}
+
+.navbar__toggle-line {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--ink-primary);
+}
+
+@media (max-width: 768px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #0b1019;
+    border-bottom: 1px solid var(--border-strong);
+    padding: 1.35rem var(--gutter-x) 1.6rem;
+    gap: 1.25rem;
+  }
+
+  .navbar__nav--open {
+    display: flex;
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .navbar__cta {
+    width: 100%;
+  }
+}

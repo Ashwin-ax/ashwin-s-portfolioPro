@@ -1,0 +1,307 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  background-color: var(--band-hero);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* Futuristic Layered Backdrop */
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(95px);
+}
+
+.hero__glow--primary {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  right: -80px;
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.hero__glow--secondary {
+  width: 440px;
+  height: 440px;
+  bottom: -140px;
+  left: -100px;
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.hero__grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 75% 75% at 65% 45%, #000 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 65% 45%, #000 35%, transparent 100%);
+}
+
+.hero__rings {
+  position: absolute;
+  width: min(760px, 95vw);
+  height: auto;
+  right: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(56, 189, 248, 0.16);
+  animation: slowOrbit 48s linear infinite;
+}
+
+@keyframes slowOrbit {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Foreground Layout */
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-primary);
+  letter-spacing: 0.03em;
+}
+
+.hero__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+}
+
+.hero__sep {
+  color: var(--ink-muted);
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+  max-width: 17ch;
+}
+
+.hero__subtitle {
+  font-size: var(--text-base);
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  max-width: 54ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.2rem;
+  margin-top: 0.35rem;
+}
+
+.hero__external {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-secondary);
+  padding-block: 0.35rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.hero__external:hover {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+/* Dark Glass Spec Card */
+.hero__panel {
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.hero-panel__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  background-color: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-panel__code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  letter-spacing: 0.05em;
+}
+
+.hero-panel__tabs {
+  display: inline-flex;
+  background-color: rgba(8, 11, 17, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.hero-panel__tab {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink-secondary);
+  transition: all 0.15s ease;
+}
+
+.hero-panel__tab.is-active {
+  background-color: var(--accent-primary);
+  color: #070b12;
+  font-weight: 600;
+}
+
+.hero-panel__body {
+  padding: 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-panel__heading {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.hero-panel__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.hero-panel__tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  background-color: var(--accent-glow);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.hero-panel__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-panel__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.62rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-panel__row dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+}
+
+.hero-panel__row dd {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  text-align: right;
+}
+
+.hero-panel__footer {
+  padding: 0.72rem 1.15rem;
+  background-color: rgba(8, 11, 17, 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__rings {
+    animation: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__title {
+    max-width: 22ch;
+  }
+
+  .hero__rings {
+    right: -220px;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__actions .btn {
+    flex: 1 1 auto;
+  }
+
+  .hero-panel__row {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .hero-panel__row dd {
+    text-align: left;
+  }
+}
