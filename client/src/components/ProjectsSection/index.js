@@ -5,7 +5,7 @@ import "./index.css";
 function ProjectSchematic({ visualType, code }) {
   return (
     <div className={`proj-visual proj-visual--${visualType}`} aria-hidden="true">
-      <span className="proj-visual__tag">{code} // BLUEPRINT</span>
+      <span className="proj-visual__tag">{code} {"// BLUEPRINT"}</span>
 
       {visualType === "cad-wireframe" && (
         <svg viewBox="0 0 240 110" className="proj-visual__svg">
